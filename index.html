@@ -7,7 +7,7 @@
     <style>
         body { 
             background-image:url('bgutama.jpg'); 
-            background-size: cover;
+            background-size: shadow;
             background-attachment: fixed;
             background-position: center;
             color: white; 
@@ -17,10 +17,20 @@
             padding: 0; 
         }
         @media (max-width: 600px) {
-    .card-game { width: 40% !important; padding: 10px !important; margin: 5px !important; }
-    .card-game img { height: 100px !important; }
-    .card-game h3 { font-size: 12px; }
-    .btn-main { font-size: 10px; padding: 5px; }
+    .container { 
+        gap: 10px; 
+        padding: 10px; 
+    }
+    .card-game { 
+        width: 45% !important; 
+        padding: 10px !important; 
+        margin: 0 !important;
+    }
+    .card-game img { height: 110px !important; }
+    .card-game h3 { font-size: 11px; margin: 5px 0; }
+    .btn-main { font-size: 10px; padding: 8px 2px; }
+    .rtp-bar { font-size: 12px; }
+}
 }
         .header { background: rgba(139, 0, 0, 0.8); padding: 20px; border-bottom: 2px solid red; }
         .running-text { background: black; color: yellow; padding: 10px; font-weight: bold; border-bottom: 1px solid red; }
