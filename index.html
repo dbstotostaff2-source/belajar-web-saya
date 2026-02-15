@@ -18,21 +18,39 @@
     margin: 0; 
     padding: 0;  
 }
-     .hot-label {
+   .hot-label {
     position: absolute; top: 10px; left: 10px;
     background: linear-gradient(45deg, red, #ff4d4d, red);
     color: white; padding: 2px 8px; border-radius: 5px;
-    font-weight: bold; font-size: 12px;
+    font-weight: bold; font-size: 10px;
     overflow: hidden; 
     z-index: 10;
 }
+
 .hot-label::after {
     content: '';
     position: absolute; top: 0; left: -100%;
-    width: 50%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-    transform: skewX(-25deg);
-    animation: shine 3s infinite;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+    transform: skewX(-20deg);
+    animation: shine 3s infinite; 
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.ritme-container { margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; animation: pulse-ritme 1.5s infinite alternate; }
+.red { background: #ff0000; box-shadow: 0 0 5px #ff0000; }
+.yellow { background: #ccff00; box-shadow: 0 0 5px #ccff00; }
+.grey { background: #444; }
+
+@keyframes pulse-ritme {
+    from { opacity: 0.3; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1.1); }
 }
 
 @keyframes shine {
@@ -203,21 +221,23 @@
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById("tgl-otomatis").innerHTML = "Update Terupdate: " + d.toLocaleDateString('id-ID', options);
         }
-
-        function gantiRTP() {
-    const ids = ["rtp1", "rtp2", "rtp3"];
-    ids.forEach(id => {
-        const el = document.getElementById(id);
-        if(el) {
-            let angka = Math.floor(Math.random() * (98 - 89 + 1)) + 89;
-            el.innerHTML = angka;
-            el.classList.add('pulse-effect'); 
-            
-            setTimeout(() => {
-                el.classList.remove('pulse-effect'); 
-            }, 500);
-        }
-    });
+        <script>
+    function gantiRTP() {
+        const ids = ["rtp1", "rtp2", "rtp3"];
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if(el) {
+                let angka = Math.floor(Math.random() * (98 - 89 + 1)) + 89;
+                el.innerHTML = angka;
+                
+                el.classList.add('pulse-effect');
+                setTimeout(() => el.classList.remove('pulse-effect'), 500);
+            }
+        });
+    }
+    setInterval(gantiRTP, 5000); 
+    setInterval(munculNotif, 8000); 
+    gantiRTP(); 
 }
 
 function munculNotif() {
