@@ -130,7 +130,7 @@
             </span>
             <img src="MJ2.jpg" alt="Atika Ways 2">
             <h3>ATIKA WAYS 2</h3>
-            <div class="rtp-bar">RTP 98%</div>
+            <div class="rtp-bar"<span id="rtp1">98</span>%
             <button class="btn-main" onclick="window.location.href='https://alexisovena.com'">MAIN SEKARANG</button>
         </div>
 
@@ -140,7 +140,7 @@
             </span>
             <img src="gateo.jpg" alt="Gates of Olympus">
             <h3>GATES OF OLYMPUS</h3>
-            <div class="rtp-bar">RTP 95%</div>
+            <div class="rtp-bar"<span id="rtp2">95</span>%
             <button class="btn-main" onclick="window.location.href='https://alexisovena.com'">MAIN SEKARANG</button>
         </div>
 
@@ -150,27 +150,32 @@
             </span>
             <img src="starlp.jpg" alt="Starlight Princess">
             <h3>STARLIGHT PRINCESS</h3>
-            <div class="rtp-bar">RTP 92%</div>
+            <div class="rtp-bar"<span id="rtp3">92</span>%
             <button class="btn-main" onclick="window.location.href='https://alexisovena.com'">MAIN SEKARANG</button>
         </div>
     </div>
 
     <script>
-        function updateWaktu() {
-            const d = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById("tgl-otomatis").innerHTML = d.toLocaleDateString('id-ID', options);
+       function updateWaktu() {
+    const d = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("tgl-otomatis").innerHTML = d.toLocaleDateString('id-ID', options);
+}
+function gantiRTP() {
+    const ids = ["rtp1", "rtp2", "rtp3"];
+    ids.forEach(id => {
+        const elemen = document.getElementById(id);
+        if (elemen) {
+            let angkaBaru = Math.floor(Math.random() * (98 - 89 + 1)) + 89;
+            elemen.innerHTML = angkaBaru;
         }
-        updateWaktu();
-    </script>
+    });
+}
+updateWaktu();
+setInterval(gantiRTP, 5000);
     <a href="https://wa.me/6281234567890?text=Halo%20Admin" class="wa-float" target="_blank">
         WA
     </a>
-    <div class="rtp-bar">RTP <span id="rtp1">98</span>%</div>
-
-    <div class="rtp-bar">RTP <span id="rtp2">95</span>%</div>
-  
-    <div class="rtp-bar">RTP <span id="rtp3">92</span>%</div>
 
    
 </body>
